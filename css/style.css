@@ -7,6 +7,7 @@
   --yellow: #fac300;
   --white: #ffffff;
   --gray33: #333333;
+  --gray5c: #5c5c5c;
   --gray66: #666666;
   --gray99: #999999;
   --grayb4: #b4b4b4;
@@ -293,6 +294,7 @@
     .header {
       position: relative;
       background-color: var(--yellow);
+      border-bottom: 0.1rem solid rgba(255, 255, 255, 0.3);
     }
   }
   .header > div {
@@ -385,6 +387,90 @@
     }
   }
 }
+@layer Heading {
+  .heading.regular {
+    color: var(--gray33);
+    font-size: 3.6rem;
+    font-weight: 400;
+    letter-spacing: -0.18rem;
+    text-align: center;
+  }
+  .heading.small {
+    color: var(--gray5c);
+    font-size: 3.6rem;
+    font-weight: 300;
+    text-align: center;
+  }
+  .heading.small::after {
+    content: "";
+    display: block;
+    margin: 2.8rem auto 0;
+    width: 1.6rem;
+    height: 1.6rem;
+    border-radius: 100%;
+    background-color: var(--yellow);
+  }
+  @media screen and (width < 900px) {
+    .heading.small::after {
+      margin: 2.4rem auto 0;
+    }
+  }
+}
+@layer visual {
+  .visual {
+    background-color: var(--yellow);
+  }
+  .visual .m0auto {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 32rem;
+  }
+  @media screen and (width < 900px) {
+    .visual .m0auto {
+      flex-direction: column;
+    }
+  }
+  .visual__title {
+    color: var(--white);
+    font-size: 7.2rem;
+    font-weight: 400;
+    letter-spacing: -0.36rem;
+  }
+  @media screen and (width < 900px) {
+    .visual__title {
+      font-size: 5rem;
+      letter-spacing: -0.25rem;
+      line-height: 1;
+    }
+  }
+  .visual__subtitle {
+    color: var(--white);
+    font-size: 2.4rem;
+    font-weight: 500;
+    letter-spacing: -0.12rem;
+    text-align: center;
+  }
+  .visual__img {
+    position: absolute;
+    right: 0;
+    bottom: -4.7rem;
+  }
+  @media screen and (width < 900px) {
+    .visual__img {
+      display: none;
+    }
+  }
+  .visual__img.bg1::after {
+    content: url(../images/img_visual1.png);
+  }
+  .visual__img.bg2::after {
+    content: url(../images/img_visual2.png);
+  }
+  .visual__img.bg3::after {
+    content: url(../images/img_visual3.png);
+  }
+}
 @layer Base {
   .m0auto {
     width: 122.4rem;
@@ -393,6 +479,14 @@
   @media screen and (width < 900px) {
     .m0auto {
       width: 100%;
+    }
+  }
+  .only-mobile {
+    display: none;
+  }
+  @media screen and (width < 900px) {
+    .only-mobile {
+      display: block;
     }
   }
 }
